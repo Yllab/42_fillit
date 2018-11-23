@@ -12,109 +12,84 @@
 
 #include "libft.h"
 #include <stdlib.h>
-#include <stdio.h>
-#define SIZE 4
 
-void	make_tetromino(int matrix[][4], char tetromino[])
-{	
-	int j;
+void 	print(unsigned short tetromino)
+{
+	int i;
+	unsigned short ref;
 
-	j = 0;
-	while (j < 16)
+	i = 16;
+	ref = 1;
+	while (--i >= 0)
 	{
-		if (matrix[j / 4][j % 4] == 1)
-			tetromino[j] = '#';
-		else
-			tetromino[j] = '.';
-		j++;
-	}	
-}
-
-/*
-** This function has a bug with pieces shaped like this :
-**   #
-**  ###
-** 50% of the time it will make this one, otherwise it will make
-** another random pieces so this function is biased and the output
-** map will reflect this :/
-*/
-void		placepixel(int matrix[][4], int position[], int r, int c)
-{
-	int 	move;
-
-	while ((r == position[0] && c == position[1]) || matrix[r][c] == 1)
-	{	
-		move = arc4random_uniform(4);
-		if (move == 0)
-			r += r == 3 ? 0 : 1;
-		if (move == 1)
-			r -= r == 0 ? 0 : 1;
-		if (move == 2)
-			c += c == 3 ? 0 : 1;
-		if (move == 3)
-			c -= c == 0 ? 0 : 1;
+		ft_putchar((tetromino & ref << i) != 0 ? '#' : '.');
+		if (i % 4 == 0)
+			ft_putchar('\n');
 	}
-
-	matrix[r][c] = 1;
 }
 
-void	make_matrix(int matrix[][4])
+unsigned short	make_tetromino(unsigned short tetromino)
 {
-	int		i;
-	int		r;
-	int		c;
-	int		startpos;
-	int		seed;
-	int		position[2];
+	if (!(tetromino & 0x4444))
+		tetromino = tetromino >> arc4random_uniform(4);
+	else if (!(tetromino & 0x2222))
+		tetromino = tetromino >> arc4random_uniform(3);
+	else if (!(tetromino & 0x1111))
+		tetromino = tetromino >> arc4random_uniform(2);
 	
-	ft_bzero(matrix, sizeof(int) * 16);
+	if (!(tetromino & 0xF00))
+		tetromino = tetromino >> arc4random_uniform(4) * 4;
+	else if (!(tetromino & 0xF0))
+		tetromino = tetromino >> arc4random_uniform(3) * 4;
+	else if (!(tetromino & 0xF))
+		tetromino = tetromino >> arc4random_uniform(2) * 4;
 
-	startpos = arc4random_uniform(16);
-	r = startpos / 4;
-	c = startpos % 4;
-
-	matrix[r][c] = 1;
-	seed = arc4random_uniform(5);
-
-	i = 1;
-	while (i < SIZE)
-	{
-		if (!(seed == 0 && i == 2)) // SPECIAL CASE
-		{
-			position[0] = r;
-			position[1] = c;
-		}
-		placepixel(matrix, position, r, c);
-		i ++;
-	}
+	return (tetromino);
 }
 
 int		main(int argc, char **argv)
 {
-	int		i1;
-	int 	i2;
-	char	tetromino[16];
-	int		matrix[4][4];
-	int		size;
-	
-	argc = 0;
-	i1 = 0;
-	size = ft_atoi(argv[1]);
-
-	while (i1++ < size)
+	int				i;
+   	unsigned short	tetrominoes[] =
 	{
-		make_matrix(matrix);
-		make_tetromino(matrix, tetromino);
-		i2 = 0;
-		while (i2 < 16)
-		{
-			ft_putchar(tetromino[i2]);
-			if (++i2 % 4 == 0)
+		0xF000, 0x8888, 0xCC00, 0xC600, 0x4C80, 0xC880, 0xE200,
+		0x44C0, 0x8E00, 0xE400, 0x4C40, 0x4E00, 0x8C80
+	};
+	
+	// Weighted Array (Same probability for each of the 5 shapes)
+   	unsigned short	tetrominoes_weighted[] =
+	{
+		0xF000, 0xF000, 0x8888, 0x8888,	0xCC00, 0xCC00, 0xCC00, 0xCC00, 
+		0xC600, 0xC600, 0x4C80, 0x4C80, 0xC880, 0xE200, 0x44C0, 0x8E00,
+		0xE400, 0x4C40, 0x4E00, 0x8C80
+	};
+
+	if (argc == 1)
+	{
+		ft_putstr("Usage : ./input_generator [-w] [size]");
+		ft_putstr("\n-w    : Same probability for the 5 base shapes");
+		ft_putstr("\nsize  : The amount of tetrominoes to generate\n");
+	}
+	else if (!ft_strcmp(argv[1], "-w"))
+	{
+		i = ft_atoi(argv[2]);
+		while (i-- > 0)
+		{	
+			print(make_tetromino(tetrominoes_weighted[arc4random_uniform(20)]));
+			if (i)
 				ft_putchar('\n');
 		}
-		if (i1 != size)
-			ft_putchar('\n');
 	}
-
-	return (0);	
+	else
+	{
+		i = ft_atoi(argv[1]);
+		while (i-- > 0)
+		{
+			print(make_tetromino(tetrominoes[arc4random_uniform(13)]));
+			if (i)
+				ft_putchar('\n');
+		}	
+	}
+	return(0);
 }
+

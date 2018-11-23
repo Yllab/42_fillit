@@ -43,7 +43,7 @@ noflags		:
 
 clean		:
 				rm -f $(OBJS)
-				rm *.gch
+				rm -f *.gch
 
 fclean		:	clean
 				rm -f $(NAME)
