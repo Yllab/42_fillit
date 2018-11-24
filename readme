@@ -6,3 +6,4 @@ before pushing :
 > git clone and review file structure
 > fichier auteur ?
 > make sure .gitignore did not ignore important files (just in case)
+
