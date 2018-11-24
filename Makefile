@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/24 19:35:11 by hbally           ###   ########.fr        #
+#    Updated: 2018/11/24 19:59:07 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,13 +39,13 @@ test		:	$(NAME)
 				$(CC) -o ./tests/test $(CFLAGS) $(LIB) $(OBJS) ./tests/maintest.o
 				cp ./fillit ./tests/
 				
-runtest		:	
+runtest		:	test	
 				clear
 				./tests/test randominput | less
 
-runfillit	:	
+runfillit	:	$(NAME)
 				clear
-				./fillit ./tests/randominput | less
+				./fillit ./tests/randominput
 
 input		:	
 				make -C ./input_generator/
