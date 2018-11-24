@@ -6,4 +6,13 @@ before pushing :
 > git clone and review file structure
 > fichier auteur ?
 > make sure .gitignore did not ignore important files (just in case)
+> remove main.o from $(NAME) rule prerequisites
+> add main.c to SRCS variable
 
+Makefile explanation
+
+> make input : generate input and put it in ./tests/
+> make test : compiles 'fillit' with ./srcs/main.c and places a copy in ./tests/
+			  then compiles 'test' with ./tests/maintest.c and place it in ./tests/
+> make runfillit : runs fillit on random input
+> make runtest   : runs test   on random input

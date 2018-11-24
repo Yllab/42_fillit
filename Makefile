@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/24 17:21:32 by hbally           ###   ########.fr        #
+#    Updated: 2018/11/24 18:41:15 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,15 +29,27 @@ CC			=	gcc
 
 all			:	$(NAME)
 
+#REMOVE MAIN.O AND ADD TO SOURCES ONCE TESTING IS OVER
 $(NAME)		:	$(OBJS) compile_lib
-				$(CC) -o $@ $(CFLAGS) $(LIB) $(OBJS)
+				$(CC) -o ./srcs/main.o $(CFLAGS) $(INCLUDES) -c ./srcs/main.c
+				$(CC) -o $@ $(CFLAGS) $(LIB) $(OBJS) ./srcs/main.o
 
-test		:	$(OBJS) compile_lib
+test		:	$(NAME)
 				$(CC) -o ./tests/maintest.o $(CFLAGS) $(INCLUDES) -c ./tests/maintest.c
 				$(CC) -o ./tests/test $(CFLAGS) $(LIB) $(OBJS) ./tests/maintest.o
+				cp ./fillit ./tests/
+				
+runtest		:	
+				clear
+				./tests/test randominput | less
+
+runfillit	:	
+				clear
+				./fillit ./tests/randominput | less
+
+input		:	
 				make -C ./input_generator/
 				./input_generator/input_generator -r > ./tests/randominput
-				./tests/test randominput
 
 compile_lib	:	
 				make -C ./libft/
@@ -57,6 +69,7 @@ fclean		:	clean
 				make fclean -C ./libft/
 				make fclean -C ./input_generator/
 				rm -f ./tests/test
+				rm -f ./tests/fillit
 				rm -f ./tests/randominput
 				rm -f $(NAME)
 
