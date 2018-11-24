@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/24 19:59:07 by hbally           ###   ########.fr        #
+#    Updated: 2018/11/24 20:02:29 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,6 +61,7 @@ clean		:
 				make clean -C ./libft/
 				make clean -C ./input_generator/
 				rm -f $(OBJS)
+				rm -f ./srcs/main.o
 				rm -f ./tests/maintest.o
 				rm -f libft/includes/*.gch
 				rm -f includes/*.gch
