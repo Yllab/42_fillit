@@ -6,19 +6,22 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/23 16:49:30 by hbally           ###   ########.fr        #
+#    Updated: 2018/11/24 17:05:58 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	fillit
 
 SRCS		=	./srcs/print_tetro.c \
-				./srcs/convert_tetro.c
+				./srcs/convert_tetro.c \
+				./srcs/get_next_line.c
+
+OBJS		=	$(SRCS:.c=.o)
 
 INCLUDES	=   -I ./libft/includes \
 				-I ./includes
 
-OBJS		=	$(SRCS:.c=.o)
+LIB			=	-L ./libft/ -lft
 
 CFLAGS		+=	-Wall -Werror -Wextra
 
@@ -26,10 +29,17 @@ CC			=	gcc
 
 all			:	$(NAME)
 
-$(NAME)		:	$(OBJS) lib
-				$(CC) $(CFLAGS) -o $@ -L ./libft/ -lft $(OBJS)
+$(NAME)		:	$(OBJS) compile_lib
+				$(CC) -o $@ $(CFLAGS) $(LIB) $(OBJS)
 
-lib			:	
+test		:	$(OBJS) compile_lib
+				$(CC) -o maintest.o $(CFLAGS) $(INCLUDES) -c ./tests/maintest.c
+				$(CC) -o ./tests/test $(CFLAGS) $(LIB) $(OBJS)
+				make -C ./input_generator/
+				./input_generator/input_generator -r > randominput
+				./tests/maintest randominput
+
+compile_lib	:	
 				make -C ./libft/
 
 %.o			:	%.c
