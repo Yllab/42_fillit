@@ -14,8 +14,8 @@ NAME		=	fillit
 
 SRCS		=	./srcs/print_tetro.c \
 
-INCLUDES	=   ./libft/includes \
-				./includes
+INCLUDES	=   -I ./libft/includes \
+				-I ./includes
 
 OBJS		=	$(SRCS:.c=.o)
 
@@ -32,7 +32,7 @@ lib			:
 				make -C ./libft/
 
 %.o			:	%.c
-				$(CC) -o $@ $(CFLAGS) -I $(INCLUDES) -c $^
+				$(CC) -o $@ $(CFLAGS) $(INCLUDES) -c $^
 
 clean		:
 				rm -f $(OBJS)
