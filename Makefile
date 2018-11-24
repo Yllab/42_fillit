@@ -12,10 +12,10 @@
 
 NAME		=	fillit
 
-SRCS		=	./srcs/*.c
+SRCS		=	./srcs/print_tetro.c \
 
-INCLUDES	=   ./libft/includes/
-				./includes/
+INCLUDES	=   ./libft/includes \
+				./includes
 
 OBJS		=	$(SRCS:.c=.o)
 
@@ -31,18 +31,13 @@ $(NAME)		:	$(OBJS) lib
 lib			:	
 				make -C ./libft/
 
-loop		:
-				number=1 ; while [[ $$number -le 100 ]] ; do \
-					 TEST HERE	\
-        			((number = number + 1)) ; \
-    			done
-
 %.o			:	%.c
-				$(CC) $(CFLAGS) -I $(INCLUDES) -c $^
+				$(CC) -o $@ $(CFLAGS) -I $(INCLUDES) -c $^
 
 clean		:
 				rm -f $(OBJS)
-				rm *.gch
+				rm -f libft/includes/*.gch
+				rm -f includes/*.gch
 
 fclean		:	clean
 				rm -f $(NAME)
