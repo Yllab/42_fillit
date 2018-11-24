@@ -8,6 +8,7 @@ before pushing :
 > make sure .gitignore did not ignore important files (just in case)
 > remove main.o from $(NAME) rule prerequisites
 > add main.c to SRCS variable
+> test fillit with empty input, 1 tetro, >26 tetros, >1 argv, from stdin..
 
 Makefile explanation
 

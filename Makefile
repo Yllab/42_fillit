@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/24 18:41:15 by hbally           ###   ########.fr        #
+#    Updated: 2018/11/24 19:35:11 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,7 @@ fclean		:	clean
 				make fclean -C ./input_generator/
 				rm -f ./tests/test
 				rm -f ./tests/fillit
+				rm -f ./tests/bad_inputs/fillit
 				rm -f ./tests/randominput
 				rm -f $(NAME)
 
