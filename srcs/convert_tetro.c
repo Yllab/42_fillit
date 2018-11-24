@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 17:28:40 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/24 17:28:43 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/24 20:20:06 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,27 @@ static unsigned short	two_pow(int power)
 	return (ret);
 }
 
+static unsigned short	shift(unsigned short tetro)
+{
+	while (!(tetro & 0xF000))
+		tetro = tetro << 4;
+	while (!(tetro & 0x8888))
+		tetro = tetro << 1;
+	return (tetro);
+}
+
 unsigned short			convert_tetro(char *s)
 {
 	int 				i;
-	unsigned short 		ret;
+	unsigned short 		tetro;
 
 	i = 0;
-	ret = 0x0;
+	tetro = 0x0;
 	while (s[i])
 	{
 		if (s[i] == '#')
-			ret += two_pow(15 - i);
+			tetro += two_pow(15 - i);
 		i++;
 	}
-	return (ret);
+	return (shift(tetro));
 }
