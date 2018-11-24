@@ -12,7 +12,8 @@
 
 NAME		=	input_generator
 
-SRCS		=	*.c
+SRCS		=	./generate_input.c \
+				../srcs/print_tetro.c
 
 INCLUDES	=   ../libft/includes/
 
@@ -30,16 +31,11 @@ $(NAME)		:	$(OBJS) lib
 lib			:	
 				make -C ../libft/
 
-loop		:
-				number=1 ; while [[ $$number -le 100 ]] ; do \
-        			((number = number + 1)) ; \
-    			done
-
 noflags		:	
 				$(CC) -o $(NAME) -I $(INCLUDES) -L ../libft/ -lft $(SRCS) 
 
 %.o			:	%.c
-				$(CC) $(CFLAGS) -I $(INCLUDES) -c $^
+				$(CC) -o $@ $(CFLAGS) -I $(INCLUDES) -c $^
 
 clean		:
 				rm -f $(OBJS)
