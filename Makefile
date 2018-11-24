@@ -13,6 +13,7 @@
 NAME		=	fillit
 
 SRCS		=	./srcs/print_tetro.c \
+				./srcs/convert_tetro.c
 
 INCLUDES	=   -I ./libft/includes \
 				-I ./includes
