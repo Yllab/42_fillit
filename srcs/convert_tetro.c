@@ -1,7 +1,9 @@
 /*
+** Converts a tetromino from char* representation to unsigned short
+**
 ** Input for convert_tetro should be a null terminated string
 ** with strlen == 16 and containing only '#' or '.'
-*/
+*/ 
 
 static unsigned short	two_pow(int power)
 {
