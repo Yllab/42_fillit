@@ -20,12 +20,5 @@ int main(int argc, char **argv)
 		if(argv[argc] != NULL)
 			return (0);
 
-	print_tetro(convert_tetro("####............"));
-	printf("\n\n");
-	print_tetro(convert_tetro(".....##..##....."));
-	printf("\n\n");
-	print_tetro(convert_tetro("............####"));
-	printf("\n\n");
-	
-	move_tetros(NULL, 10)
+	move_tetros(NULL, 10);
 }

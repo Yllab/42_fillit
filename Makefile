@@ -14,7 +14,8 @@ NAME		=	fillit
 
 SRCS		=	./srcs/print_tetro.c \
 				./srcs/convert_tetro.c \
-				./srcs/get_next_line.c
+				./srcs/get_next_line.c \
+				./srcs/move_tetros.c
 
 OBJS		=	$(SRCS:.c=.o)
 
