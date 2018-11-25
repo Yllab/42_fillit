@@ -55,3 +55,5 @@ run :
 	./fillit ./bad_oneline_nonewline
 	./fillit ./bad_oneline_text
 	./fillit ./bad_oneline_text_4chars
+	./fillit ./bad_long_27tetros
+	./fillit ./bad_long_+27tetros
