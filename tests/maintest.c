@@ -26,4 +26,6 @@ int main(int argc, char **argv)
 	printf("\n\n");
 	print_tetro(convert_tetro("................"));
 	printf("\n\n");
+	
+	move_tetros(NULL, 10)
 }
