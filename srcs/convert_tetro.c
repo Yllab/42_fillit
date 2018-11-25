@@ -17,27 +17,6 @@
 ** with strlen == 16 and containing only '#' or '.'
 */ 
 
-static unsigned short	two_pow(int power)
-{
-	unsigned short 		ret;
-
-	if (power == 0)
-		return (1);
-	ret = 2;
-	while (--power > 0)
-		ret *= 2;	
-	return (ret);
-}
-
-static unsigned short	shift(unsigned short tetro)
-{
-	while (!(tetro & 0xF000))
-		tetro = tetro << 4;
-	while (!(tetro & 0x8888))
-		tetro = tetro << 1;
-	return (tetro);
-}
-
 unsigned short			convert_tetro(char *s)
 {
 	int 				i;
@@ -48,7 +27,7 @@ unsigned short			convert_tetro(char *s)
 	while (s[i])
 	{
 		if (s[i] == '#')
-			tetro += two_pow(15 - i);
+			ret += i == 15 ? 1 : 2 << (14 - i);
 		i++;
 	}
 	return (shift(tetro));
