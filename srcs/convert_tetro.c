@@ -17,6 +17,15 @@
 ** with strlen == 16 and containing only '#' or '.'
 */ 
 
+static unsigned short	shift(unsigned short tetro)
+{
+	while (!(tetro & 0xF000))
+		tetro = tetro << 4;
+	while (!(tetro & 0x8888))
+		tetro = tetro << 1;
+	return (tetro);
+}
+
 unsigned short			convert_tetro(char *s)
 {
 	int 				i;
