@@ -15,6 +15,7 @@
 **
 ** Input for convert_tetro should be a null terminated string
 ** with strlen == 16 and containing only '#' or '.'
+** (note : if no # is found it is undefined behavior (intended))
 */ 
 
 static unsigned short	shift(unsigned short tetro)
@@ -36,7 +37,7 @@ unsigned short			convert_tetro(char *s)
 	while (s[i])
 	{
 		if (s[i] == '#')
-			ret += i == 15 ? 1 : 2 << (14 - i);
+			tetro += (i == 15) ? 1 : 2 << (14 - i);
 		i++;
 	}
 	return (shift(tetro));
