@@ -12,11 +12,9 @@
 
 #include "fillit.h"
 
-static int	is_free(t_short *tetro, t_short field[], int size)
-{
-
-	return (1);
-}
+static int	is_free(t_short *tetro, int translate, t_short field[], int size);
+static int	place_tetro(t_short *tetro, int translate, t_short field[], int size);
+static int	remove_tetro(t_short *tetro, int translate, t_short field[], int size);
 
 int			move_tetros(t_short *tetro, t_short field[], int size)
 {
@@ -32,14 +30,14 @@ int			move_tetros(t_short *tetro, t_short field[], int size)
 			if (is_free(tetro, translate, field, size))
 			{
 				place_tetro(tetro, translate, field, size);
-				move_tetros(tetro + 1, field, size)
-				//add to result string
-				return (1);
+				if (move_tetros(tetro + 1, field, size))
+				{
+					// + add to result string
+					return (1);
+				}
+				remove_tetro(tetro, translate, field, size);
 			}
-			else
-			{
-				translate++;
-			}
+			translate++;
 		}
 		return (0);
 	}
