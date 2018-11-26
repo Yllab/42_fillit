@@ -6,15 +6,16 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/24 20:02:29 by hbally           ###   ########.fr        #
+#    Updated: 2018/11/26 11:10:23 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	fillit
 
-SRCS		=	./srcs/print_tetro.c \
-				./srcs/convert_tetro.c \
-				./srcs/get_next_line.c \
+SRCS		=	./srcs/print_tetro.c 		\
+				./srcs/convert_tetro.c 		\
+				./srcs/get_next_line.c 		\
+				./srcs/move_tetros_pilot.c	\
 				./srcs/move_tetros.c
 
 OBJS		=	$(SRCS:.c=.o)

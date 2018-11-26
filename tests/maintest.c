@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 16:27:44 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/24 20:21:57 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/26 11:29:54 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,5 @@ int main(int argc, char **argv)
 		if(argv[argc] != NULL)
 			return (0);
 
-	move_tetros(NULL, 10);
+	move_tetros_pilot(NULL, ft_atoi(argv[1]));
 }

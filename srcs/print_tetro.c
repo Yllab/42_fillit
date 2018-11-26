@@ -6,11 +6,12 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 17:28:50 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/24 17:57:58 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/26 11:59:15 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "fillit.h"
 
 /*
 ** Our tetro is represented as 16 bits, for instance
@@ -33,9 +34,9 @@
 ** 0000 1000 0010 0000 > here we print '#' and keep going
 */
 
-void 	print_tetro(unsigned short tetro)
+void 	print_tetro(t_short tetro)
 {
-	unsigned short control;
+	t_short control;
 
 	control = 0x8000;
 	while (control > 0)
