@@ -63,18 +63,12 @@ int					move_tetros(t_tetro *tetros, int tetro_count)
 	unsigned short	field[16];
 	int				field_size;
 
-//DEBUG	
-//	field_size = ft_sqrt(tetro_count * 4);
-	tetro_count = tetro_count + 1;
-	field_size = 4;
-//=====
+	field_size = ft_sqrt(tetro_count * 4);
 	field_init(field, field_size);
 	while(!BACKTRACKING_FUNCTION(tetros, field, field_size))
 	{
 		field_size++;
 		field_init(field, field_size);
-		//DEBUG
-		print_field(field);
 	}
 	return (field_size);
 }
