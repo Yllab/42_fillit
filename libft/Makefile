@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/17 17:10:33 by hbally           ###   ########.fr        #
+#    Updated: 2018/11/26 09:55:19 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,8 @@ SRCS		=	./srcs/ft_atoi.c 			\
 				./srcs/ft_lstmap.c			\
 				./srcs/ft_lstnew.c			\
 				./srcs/ft_str_realloc.c		\
-				./srcs/ft_memrealloc.c
+				./srcs/ft_memrealloc.c		\
+				./srcs/ft_sqrt.c
 
 INCLUDES	=	./includes/
 
@@ -87,15 +88,9 @@ $(NAME)		:	$(OBJS)
 				ar rc $@ $(OBJS)
 				ranlib $@
 
-test		:	$(OBJS)
-				$(CC) -o ../test.o -c $(CFLAGS) -I $(INCLUDES) ../test.c
-				$(CC) -o ../test.out $(CFLAGS) -I $(INCLUDES) $(OBJS) ../test.o
-				@clear
-				@../test.out
-				@rm ../test.out ../test.o
-
 %.o			:	%.c
 				$(CC) -o $@ $(CFLAGS) -I $(INCLUDES) -c $^
+
 clean		:
 				rm -f $(OBJS)
 
