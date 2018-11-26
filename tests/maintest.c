@@ -20,5 +20,8 @@ int main(int argc, char **argv)
 		if(argv[argc] != NULL)
 			return (0);
 
-	move_tetros_pilot(NULL, ft_atoi(argv[1]));
+//	move_tetros_pilot(NULL, ft_atoi(argv[1]));
+	unsigned int test;
+	test = 0xFFFFFFFF;
+	printf("%d", (unsigned short)test << 4);
 }

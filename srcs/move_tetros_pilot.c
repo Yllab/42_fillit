@@ -75,7 +75,6 @@ int					move_tetros_pilot(t_short *tetro, int tetro_count)
 
 	size = upper_perfect_square(tetro_count * 4);
 	field_init(field, size);
-	
 	while(!move_tetros(tetro, field, size))
 	{
 		size++;

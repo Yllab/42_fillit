@@ -5,6 +5,12 @@
 
 typedef	unsigned short 	t_short;
 
+//DEBUG -------------------
+
+void				print_field(t_short field[]);
+
+//-------------------------
+
 int						get_next_line(const int fd, char **line);
 
 void 					print_tetro(t_short tetro);
