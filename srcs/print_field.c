@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 13:42:07 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/27 14:53:41 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/27 17:12:02 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 
 void				print_field(t_field *field)
 {
+	
 	int	i;
 	t_short ref;
 	t_short boundary;
@@ -25,7 +26,6 @@ void				print_field(t_field *field)
 	i = 0;
 	boundary = 1;
 
-	ft_putstr("\n");
 	while (i < 16)
 	{	
 		ref = 0x8000;
@@ -52,5 +52,4 @@ void				print_field(t_field *field)
 		ft_putstr("\n");
 		i++;
 	}
-	ft_putstr("\n");
 }

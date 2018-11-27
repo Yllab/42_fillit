@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 10:07:05 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/27 14:54:35 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/27 17:11:52 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,33 +25,19 @@ static int			upper_perfect_square(int nb)
 	return (ret);
 }
 
-static void			field_init(t_field *field)
-{
-	int 			i;
-
-	i = 0;
-	
-	while (i < 16)
-		field->tab[i++] = 0;
-}
-
-
-
-
-
 //DEBUG
-#include <stdio.h>
-//
+#include <unistd.h>
 int					move_tetros_pilot(t_short *tetro, int tetro_count)
 {
 	t_field			field;
 
 	field.size = upper_perfect_square(tetro_count * 4);
-	field_init(&field);
+	bzero(&field, sizeof(t_short) * 16);
 	while(!move_tetros(tetro, &field))
 	{
+		ft_putstr("\nSIZE++\n");
 		field.size += 1;
-		field_init(&field);
 	}
+	print_field(&field);
 	return (field.size);
 }

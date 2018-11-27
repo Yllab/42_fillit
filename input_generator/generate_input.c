@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 11:01:22 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/24 16:58:45 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/27 17:34:26 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,38 +60,31 @@ int		main(int argc, char **argv)
 {
 	int				i;
 	int				j;
-	int				weighted;
 	int				random;
 	unsigned short	tetros[] =
 	{
-		0xF000, 0x8888, 0xCC00, 0xC600, 0x4C80, 0xC880, 0xE200,
-		0x44C0, 0x8E00, 0xE400, 0x4C40, 0x4E00, 0x8C80
-	};
-	unsigned short	tetros_weighted[] =
-	{
-		0xF000, 0xF000, 0x8888, 0x8888,	0xCC00, 0xCC00, 0xCC00, 0xCC00, 
-		0xC600, 0xC600, 0x4C80, 0x4C80, 0xC880, 0xE200, 0x44C0, 0x8E00,
+		0xF000, 0x8888,
+		0xCC00,	
+		0xC600, 0x4C80, 
+		0x6C00, 0x8C40,
+		0xC880, 0xE200, 0x44C0, 0x8E00,
+		0x88C0, 0x2E00, 0xC440, 0xE800,	
 		0xE400, 0x4C40, 0x4E00, 0x8C80
 	};
 
-	// Fluff
 	if (argc == 1)
 	{
 		ft_putstr("Usage : ./input_generator [-w] [number]");
 		ft_putstr("\n        ./input_generator [-w] [-r]");
-		ft_putstr("\n\n-w     : Same probability for the 5 base shapes");
 		ft_putstr("\n-r     : Output a random number of shapes");
 		ft_putstr("\nnumber : The amount of tetros to generate\n");
 	}
 	else
 	{
 		j = 0;
-		weighted = 0;
 		random = 0;
 		while (argv[j])
 		{
-			if (!ft_strcmp(argv[j], "-w"))
-				weighted = 1;
 			if (!ft_strcmp(argv[j], "-r"))
 				random = 1;
 			j++;
@@ -102,10 +95,7 @@ int		main(int argc, char **argv)
 			i = ft_atoi(argv[argc - 1]);
 		while (i-- > 0)
 		{
-			if (weighted)
-				print_tetro(make_tetro(tetros_weighted[arc4random_uniform(20)]));
-			else
-				print_tetro(make_tetro(tetros[arc4random_uniform(13)]));
+				print_tetro(make_tetro(tetros[arc4random_uniform(19)]));
 			if (i)
 				ft_putchar('\n');
 		}	
