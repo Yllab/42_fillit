@@ -9,7 +9,7 @@ before pushing :
 > remove main.o from $(NAME) rule prerequisites
 > add main.c to SRCS variable
 > test fillit with empty input, 1 tetro, >26 tetros, >1 argv, from stdin..
-> remove debug from move_tetros.c
+> remove debug functions from sources, header and makefile
 
 Makefile explanation
 
