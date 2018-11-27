@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 16:27:44 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/27 17:32:20 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/27 18:27:59 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int main(int argc, char **argv)
 		if(argv[argc] != NULL)
 			return (0);
 
+/*
 	unsigned short	tetro[] =
 	{
 		0xF000, 0x8888,
@@ -31,10 +32,12 @@ int main(int argc, char **argv)
 		0x88C0, 0x2E00, 0xC440, 0xE800,	
 		0xE400, 0x4C40, 0x4E00, 0x8C80, 0
 	}
+*/
 
-	int i = 0;
-	int size = 0;
-	while (tetro[i++] != 0)
-		size++;
-	move_tetros_pilot(tetro, size - 1);
+	t_short tetro[] = 
+	{
+		0xCC00, 0x4E00, 0
+	};
+
+	move_tetros_pilot(tetro, 2);
 }
