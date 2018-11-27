@@ -5,19 +5,25 @@
 
 typedef	unsigned short 	t_short;
 
+typedef struct			s_field
+{
+	t_short				tab[16];
+	int					size;
+}						t_field;
+
 //DEBUG -------------------
 
-void				print_field(t_short field[]);
+void					print_field(t_field *field);
+void 					print_tetro(t_short tetro);
 
 //-------------------------
 
 int						get_next_line(const int fd, char **line);
 
-void 					print_tetro(t_short tetro);
 t_short					convert_tetro(char *s);
 
 int						move_tetros_pilot(t_short *tetro, int tetro_count);
-int						move_tetros(t_short *tetro, t_short field[], int size);
+int						move_tetros(t_short *tetro, t_field *field);
 
 
 #endif

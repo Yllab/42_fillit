@@ -6,12 +6,14 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 17:28:50 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/26 11:59:15 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/27 13:43:55 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
+
+// This function is for debug only
 
 /*
 ** Our tetro is represented as 16 bits, for instance

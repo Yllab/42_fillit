@@ -1,30 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   maintest.c                                         :+:      :+:    :+:   */
+/*   print_field.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/24 16:27:44 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/27 13:47:57 by hbally           ###   ########.fr       */
+/*   Created: 2018/11/27 13:42:07 by hbally            #+#    #+#             */
+/*   Updated: 2018/11/27 13:47:14 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+// This function is for debug only
+
 #include "fillit.h"
 #include <stdio.h>
 
-int main(int argc, char **argv)
+void				print_field(t_field *field)
 {
-	//Does nothing
-	if (argc)
-		if(argv[argc] != NULL)
-			return (0);
+	int	i;
+	t_short ref;
 
-	unsigned short	tetro[] =
-	{
-		0xF000, 0x8888, 0xCC00, 0xC600, 0x4C80, 0xC880, 0xE200,
-		0x44C0, 0x8E00, 0xE400, 0x4C40, 0x4E00, 0x8C80, 0
-	};
-	move_tetros_pilot(tetro, 13);
+	i = 0;
+	while (i < 16)
+	{	
+		if (i < 10)
+		printf("%d | ", i);
+		else
+		printf("%d| ", i);
+		ref = 0x8000;
+		while (ref)
+		{
+			if (field->tab[i] & ref)
+				printf("# ");
+			else
+				printf(". ");
+			ref /= 2;
+		}
+		printf("\n");
+		i++;
+	}
+	printf("\n");	
 }

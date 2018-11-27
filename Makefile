@@ -6,13 +6,15 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/26 11:10:23 by hbally           ###   ########.fr        #
+#    Updated: 2018/11/27 13:46:23 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	fillit
 
+#TODO Remove debug functions
 SRCS		=	./srcs/print_tetro.c 		\
+				./srcs/print_field.c		\
 				./srcs/convert_tetro.c 		\
 				./srcs/get_next_line.c 		\
 				./srcs/move_tetros_pilot.c	\
@@ -31,7 +33,7 @@ CC			=	gcc
 
 all			:	$(NAME)
 
-#REMOVE MAIN.O AND ADD TO SOURCES ONCE TESTING IS OVER
+#TODO Remove main.c/main.o mentions and add main to sources
 $(NAME)		:	$(OBJS) compile_lib
 				$(CC) -o ./srcs/main.o $(CFLAGS) $(INCLUDES) -c ./srcs/main.c
 				$(CC) -o $@ $(CFLAGS) $(LIB) $(OBJS) ./srcs/main.o
@@ -43,7 +45,7 @@ test		:	$(NAME)
 				
 runtest		:	test	
 				clear
-				./tests/test randominput | less
+				./tests/test randominput
 
 runfillit	:	$(NAME)
 				clear
