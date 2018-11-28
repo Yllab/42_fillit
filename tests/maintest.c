@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 16:27:44 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/28 12:01:00 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/28 16:34:37 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,10 @@ int main(int argc, char **argv)
 	{
 		0,
 	   	0x8888,
-	   	0x8888,
-	   	0x8888,
-	   	0x8888,
-	   	0xCC00,
-		0x8888,
-	   	0x8888,
 	   	0
 	};
 	
-	int size = 0;
-	int i = 0;
-	while (tetro[++i] != 0)
-		size++;
-	move_tetros_pilot(&tetro[1], size);
+	printf("%d",move_tetros_pilot(tetro + 1));
 
 	return 0;
 }

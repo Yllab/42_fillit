@@ -6,12 +6,22 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 10:07:05 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/27 17:11:52 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/28 16:33:39 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 #include "fillit.h"
+
+static int			get_tetro_count(t_short *tetro)
+{
+	int				count;
+
+	count = 0;
+	while (*(tetro++))
+		count++;
+	return (count);
+}
 
 static int			upper_perfect_square(int nb)
 {
@@ -25,12 +35,13 @@ static int			upper_perfect_square(int nb)
 	return (ret);
 }
 
-int					move_tetros_pilot(t_short *tetro, int tetro_count)
+int					move_tetros_pilot(t_short *tetro)
 {
 	t_field			field;
 	int				ret;
 
-	field.size = upper_perfect_square(tetro_count * 4);
+	return (get_tetro_count(tetro));
+	field.size = upper_perfect_square(get_tetro_count(tetro) * 4);
 	bzero(&field, sizeof(t_short) * 16);
 	while((ret = move_tetros(tetro, &field, field.size)) == 0)
 		field.size += 1;
