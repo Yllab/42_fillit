@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/26 10:07:05 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/28 16:33:39 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/28 17:28:24 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,6 @@ int					move_tetros_pilot(t_short *tetro)
 	t_field			field;
 	int				ret;
 
-	return (get_tetro_count(tetro));
 	field.size = upper_perfect_square(get_tetro_count(tetro) * 4);
 	bzero(&field, sizeof(t_short) * 16);
 	while((ret = move_tetros(tetro, &field, field.size)) == 0)

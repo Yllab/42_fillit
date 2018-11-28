@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 17:56:51 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/28 16:38:44 by hbally           ###   ########.fr       */
+/*   Updated: 2018/11/28 17:35:49 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,13 @@ int				main(int argc, char **argv)
 {
 	int 		fd;
 	int			ret;
-	int			count;
 	t_short 	*tetro;
 
 	fd = open(argv[1], O_RDONLY);
-	tetro = get_input(fd, &tetro);
+	tetro = get_input(fd);
 	if (!tetro)
-	{
 		print_error();
-		return (0);
-	}
-	ret = move_tetros_pilot(
-
+	if (move_tetros_pilot(tetro) == -1)
+		print_error();
 	return (0);
 }
