@@ -11,7 +11,7 @@ static	int			init_result(char **result, t_short *tetro, int size)
 		tetro--;
 		count++;
 	}
-	*result = ft_strnew(size * size + size);
+	*result = ft_strnew(size * size);
 	if (!*result)
 		count = -1;
 	return (count);
@@ -23,16 +23,18 @@ static void			print_result(char *result, int size)
 	int				i;
 
 	i = 0;
-	len = size * size + size;
-	while (i <= len)
+	len = size * size;
+	while (i < len)
 	{
+		if (i > 0 && i % size == 0)
+			ft_putchar('\n');
 		if (!result[i])
-			result[i] = '.';
-		if (i % size == 0 && i > 0)
-			result[i] = '\n';
+			ft_putchar('.'); 
+		else
+			ft_putstr(result[i]);
 		i++;
 	}
-	ft_putstr(result);
+	ft_putchar('\n');
 	ft_strdel(&result);
 }
 
@@ -54,7 +56,7 @@ int					fill_result(t_short *tetro, int pos, int size)
 	{
 		if (*tetro & iter)
 			result[pos] = 'A' + count;
-		pos += iter & 0x1111 ? size - 2: 1;
+		pos += iter & 0x1111 ? size - 3: 1;
 		iter /= 2;
 	}
 	if (count == 0)
