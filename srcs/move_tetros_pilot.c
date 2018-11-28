@@ -25,19 +25,14 @@ static int			upper_perfect_square(int nb)
 	return (ret);
 }
 
-//DEBUG
-#include <unistd.h>
 int					move_tetros_pilot(t_short *tetro, int tetro_count)
 {
 	t_field			field;
+	int				ret;
 
 	field.size = upper_perfect_square(tetro_count * 4);
 	bzero(&field, sizeof(t_short) * 16);
-	while(!move_tetros(tetro, &field))
-	{
-		ft_putstr("\nSIZE++\n");
+	while((ret = move_tetros(tetro, &field, field.size)) == 0)
 		field.size += 1;
-	}
-	print_field(&field);
-	return (field.size);
+	return (ret);
 }

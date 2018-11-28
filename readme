@@ -1,6 +1,7 @@
 TODO :
 
 > check if libft functions we use and get next line could be optimized
+> 
 
 before pushing :
 > git clone and review file structure
@@ -10,6 +11,8 @@ before pushing :
 > add main.c to SRCS variable
 > test fillit with empty input, 1 tetro, >26 tetros, >1 argv, from stdin..
 > remove debug functions from sources, header and makefile
+> check for stdio.h / printf / ..
+> check for unprotected malloc / memory leak / malloc fail behavior / ..
 
 Makefile explanation
 

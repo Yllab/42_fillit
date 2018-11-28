@@ -18,7 +18,8 @@ SRCS		=	./srcs/print_tetro.c 		\
 				./srcs/convert_tetro.c 		\
 				./srcs/get_next_line.c 		\
 				./srcs/move_tetros_pilot.c	\
-				./srcs/move_tetros.c
+				./srcs/move_tetros.c		\
+				./srcs/result.c
 
 OBJS		=	$(SRCS:.c=.o)
 

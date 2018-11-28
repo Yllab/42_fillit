@@ -36,8 +36,8 @@ int main(int argc, char **argv)
 
 	t_short tetro[] = 
 	{
-		0xCC00, 0x4E00, 0
+		0, 0xCC00, 0x4E00, 0
 	};
 
-	move_tetros_pilot(tetro, 2);
+	move_tetros_pilot(&tetro[1], 2);
 }

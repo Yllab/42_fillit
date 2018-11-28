@@ -21,9 +21,8 @@ void 					print_tetro(t_short tetro);
 int						get_next_line(const int fd, char **line);
 
 t_short					convert_tetro(char *s);
-
 int						move_tetros_pilot(t_short *tetro, int tetro_count);
-int						move_tetros(t_short *tetro, t_field *field);
-
+int						move_tetros(t_short *tetro, t_field *field, int size);
+int						fill_result(t_short *tetro, int pos, int size);
 
 #endif
