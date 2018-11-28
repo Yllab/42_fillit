@@ -31,7 +31,7 @@ static void			print_result(char *result, int size)
 		if (!result[i])
 			ft_putchar('.'); 
 		else
-			ft_putstr(result[i]);
+			ft_putchar(result[i]);
 		i++;
 	}
 	ft_putchar('\n');
