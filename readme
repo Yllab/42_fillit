@@ -10,7 +10,7 @@ Makefile explanation
 /////////////////////////////////////////////////////
 TODO :
 > check if libft functions we use and get next line could be optimized
-> 
+> this is a test
 
 optimisation algo fillit
 >  verifier le nombre de blanks restants ou l’on ne peut pas mettre de tetro — si plus petit que le reste des pieces a trouver, sortir
