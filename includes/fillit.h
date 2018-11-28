@@ -13,7 +13,7 @@ typedef struct			s_field
 
 //DEBUG -------------------
 
-void					print_field(t_field *field);
+void					print_field(t_field *field, t_short *tetro, int pos, int print_tetro);
 void 					print_tetro(t_short tetro);
 
 //-------------------------

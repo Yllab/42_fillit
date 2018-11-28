@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/28 16:32:44 by hbally           ###   ########.fr        #
+#    Updated: 2018/11/28 17:45:58 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,7 +39,7 @@ $(NAME)		:	$(OBJS) compile_lib
 				$(CC) -o ./srcs/main.o $(CFLAGS) $(INCLUDES) -c ./srcs/main.c
 				$(CC) -o $@ $(CFLAGS) $(LIB) $(OBJS) ./srcs/main.o
 
-test		:	$(OBJS)
+test		:	$(OBJS) compile_lib
 				$(CC) -o ./tests/maintest.o $(CFLAGS) $(INCLUDES) -c ./tests/maintest.c
 				$(CC) -o ./tests/test $(CFLAGS) $(LIB) $(OBJS) ./tests/maintest.o
 				
