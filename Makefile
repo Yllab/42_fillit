@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/29 13:58:41 by hbally           ###   ########.fr        #
+#    Updated: 2018/11/29 14:41:52 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,8 @@ CFLAGS		+=	-Wall -Werror -Wextra
 
 CC			=	gcc
 
+TESTDIR		=	tests
+
 all			:	$(NAME)
 
 #TODO Remove main.c/main.o mentions and add main to sources
@@ -42,8 +44,8 @@ $(NAME)		:	$(OBJS)
 
 test		:	$(OBJS)
 				make -C ./libft/
-				$(CC) -o ./tests/maintest.o $(CFLAGS) $(INCLUDES) -c ./tests/maintest.c
-				$(CC) -o ./tests/test $(CFLAGS) $(LIB) $(OBJS) ./tests/maintest.o
+				$(CC) -o $@.o $(CFLAGS) $(INCLUDES) -c ./tests/maintest.c
+				$(CC) -o $@ $(CFLAGS) $(LIB) $(OBJS) ./tests/maintest.o
 				
 runtest		:	test	
 				clear

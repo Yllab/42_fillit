@@ -32,3 +32,4 @@ before pushing :
 > check for stdio.h / printf / ..
 > check for unprotected malloc / memory leak / malloc fail behavior / ..
 > add clean of libft to clean/fclean of Makefile
+> relink makefile
