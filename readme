@@ -31,3 +31,4 @@ before pushing :
 > remove debug functions from sources, header and makefile
 > check for stdio.h / printf / ..
 > check for unprotected malloc / memory leak / malloc fail behavior / ..
+> add clean of libft to clean/fclean of Makefile
