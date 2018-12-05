@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/23 11:01:22 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/28 17:44:05 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/05 09:37:07 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,8 +92,8 @@ int		main(int argc, char **argv)
 
 	if (argc == 1)
 	{
-		ft_putstr("Usage : ./input_generator [-w] [number]");
-		ft_putstr("\n        ./input_generator [-w] [-r]");
+		ft_putstr("Usage : ./input_generator [number]");
+		ft_putstr("\n        ./input_generator [-r]");
 		ft_putstr("\n-r     : Output a random number of shapes");
 		ft_putstr("\nnumber : The amount of tetros to generate\n");
 	}

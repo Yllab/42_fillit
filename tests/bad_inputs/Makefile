@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/24 19:31:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/24 19:36:38 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/05 09:48:24 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,3 +57,16 @@ run :
 	./fillit ./bad_oneline_text_4chars
 	./fillit ./bad_long_27tetros
 	./fillit ./bad_long_+27tetros
+	./fillit ./bad_links
+	./fillit ./bad_links1
+	./fillit ./bad_links10
+	./fillit ./bad_links11
+	./fillit ./bad_links12
+	./fillit ./bad_links2
+	./fillit ./bad_links3
+	./fillit ./bad_links4
+	./fillit ./bad_links5
+	./fillit ./bad_links6
+	./fillit ./bad_links7
+	./fillit ./bad_links8
+	./fillit ./bad_links9

@@ -6,16 +6,17 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/24 17:18:06 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/05 09:36:03 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	input_generator
 
-SRCS		=	./generate_input.c \
+SRCS		=	./generate_input.c 	\
 				../srcs/print_tetro.c
 
-INCLUDES	=   ../libft/includes/
+INCLUDES	=   -I ../libft/includes/	\
+				-I ../includes
 
 OBJS		=	$(SRCS:.c=.o)
 
@@ -32,10 +33,10 @@ lib			:
 				make -C ../libft/
 
 noflags		:	
-				$(CC) -o $(NAME) -I $(INCLUDES) -L ../libft/ -lft $(SRCS) 
+				$(CC) -o $(NAME) $(INCLUDES) -L ../libft/ -lft $(SRCS) 
 
 %.o			:	%.c
-				$(CC) -o $@ $(CFLAGS) -I $(INCLUDES) -c $^
+				$(CC) -o $@ $(CFLAGS) $(INCLUDES) -c $^
 
 clean		:
 				rm -f $(OBJS)
