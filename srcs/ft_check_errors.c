@@ -47,16 +47,16 @@ int check_counts(char *str, int count)
 	  if (!(str[i] == '#' || str[i] == '.'))
 	    return (1);
 	  if (str[i] == '#' && ++blocks > 4)
-	    return (2);
+	    return (1);
 	}
       else if (str[i] != '\n')
-	return (3);
+	return (1);
       i++;
     }
   if (count == 21 && str[20] != '\n')
-    return (4);
+    return (1);
   if (!check_connections(str))
-    return (5);
+    return (1);
   return (0);
 }
 
@@ -82,30 +82,4 @@ char	*remove_lines(char *buf)
     }
   str[i] = '\0';
   return (str);
-}
-
-int get_input(const int fd, t_short *tetro)
-{
-  char buf[22];
-  int count;
-  int i;
-  char check;
-  char *tmp;
-
-  i = 0;
-  check = 0;
-  while ((count = read(fd, buf, 21)))
-    {
-      if (count < 20 || check_counts(buf, count) != 0)
-	return (0);
-      tmp = remove_lines(buf);
-      tetro[i] = convert_tetro(tmp);
-      check = count;
-      if (i > 25)
-	return (0);
-      i++;
-    }
-  if (check != 20)
-    return (0);
-  return (1);
 }
