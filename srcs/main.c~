@@ -19,5 +19,6 @@ int main(int argc, char **argv)
       print_error("error");
       return (0);
     }
+  ft_memdel((void*)&tetro);
   return (0);
 }

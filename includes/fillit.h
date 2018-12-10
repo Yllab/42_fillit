@@ -27,7 +27,7 @@ int						fill_result(t_short *tetro, int pos, int size);
 int    get_input(const int fd, t_short *tetris);
 int print_error(char *str);
 int check_counts(char *str, int count);
-int check_connections(char *str);
+int check_links(char *str);
 char *remove_lines(char *buf);
 
 #endif

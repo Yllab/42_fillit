@@ -8,7 +8,7 @@ int	print_error(char *str)
   return (1);
 }
 
-int check_connections(char *str)
+int check_links(char *str)
 {
   int block;
   int i;
@@ -55,7 +55,7 @@ int check_counts(char *str, int count)
     }
   if (count == 21 && str[20] != '\n')
     return (1);
-  if (!check_connections(str))
+  if (!check_links(str))
     return (1);
   return (0);
 }
