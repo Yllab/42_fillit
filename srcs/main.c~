@@ -7,22 +7,18 @@
 int main(int argc, char **argv)
 {
   t_short	tetro[27];
-  int count;
 
   if (argc != 2)
     return (print_error("usage: ./fillit [input_file]"));
   ft_bzero(tetro, sizeof(t_short) * (27));
-  if (count = get_input(open(argv[1], O_RDONLY), tetro) == 0)
+  if (!(get_input(open(argv[1], O_RDONLY), tetro)))
+      print_error("error");
+  if (move_tetros_pilot(tetro) == -1)
     {
       print_error("error");
       return (0);
     }
-  if (tetro)
-    {
-      if (move_tetros_pilot(tetro) == -1)
-	print_error("error");
-      return (0);
-    }
-  print_error("error");
+  else
+    print_error("error");
   return (0);
 }

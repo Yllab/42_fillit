@@ -12,13 +12,14 @@ int main(int argc, char **argv)
     return (print_error("usage: ./fillit [input_file]"));
   ft_bzero(tetro, sizeof(t_short) * (27));
   if (!(get_input(open(argv[1], O_RDONLY), tetro)))
+    {
       print_error("error");
+      return (0);
+    }
   if (move_tetros_pilot(tetro) == -1)
     {
       print_error("error");
       return (0);
     }
-  else
-    print_error("error");
   return (0);
 }
