@@ -16,6 +16,7 @@ NAME		=	fillit
 SRCS		=	./srcs/print_tetro.c 		\
 				./srcs/print_field.c		\
 				./srcs/convert_tetro.c 		\
+				./srcs/get_next_line.c 		\
 				./srcs/move_tetros_pilot.c	\
 				./srcs/move_tetros.c		\
 				./srcs/result.c			\
