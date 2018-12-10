@@ -70,7 +70,7 @@ char	*remove_lines(char *buf)
   i = 0;
   j = 0;
   str = ft_strnew(sizeof(buf));
-  while (i < 17)
+  while (i < 16)
     {
       if (buf[j] != '\n')
 	{
@@ -91,7 +91,7 @@ t_short	*get_input(const int fd, t_short *tetro)
   int count;
   int i;
   char check;
-  char *hello;
+  char *tmp;
 
   i = 0;
   check = 0;
@@ -100,8 +100,8 @@ t_short	*get_input(const int fd, t_short *tetro)
     {
       if (count < 20 || check_counts(buf, count) != 0)
 	return (0);
-      hello = buf;
-      tetro[i] = convert_tetro(remove_lines(hello));
+      tmp = remove_lines(buf);
+      //      tetro[i] = convert_tetro(tmp);
       check = count;
       if (i > 26)
 	return (0);

@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <unistd.h>
 #include "libft.h"
 #include "fillit.h"
@@ -62,25 +63,26 @@ int check_counts(char *str, int count)
 
 char	*remove_lines(char *buf)
 {
-  char tmp[17];
+  char *str;
   int i;
   int j;
 
   i = 0;
   j = 0;
-  while (buf)
+  str = ft_strnew(sizeof(buf));
+  while (i < 17)
     {
       if (buf[j] != '\n')
 	{
-	  tmp[i] = buf[j];
-	  j++;
+	  str[i] = buf[j];
 	  i++;
+	  j++;
 	}
       else
 	j++;
     }
-  buf[i] = '\0';
-  return (tmp);
+  str[i] = '\0';
+  return (str);
 }
 
 t_short	*get_input(const int fd, t_short *tetro)
@@ -89,6 +91,7 @@ t_short	*get_input(const int fd, t_short *tetro)
   int count;
   int i;
   char check;
+  char *hello;
 
   i = 0;
   check = 0;
@@ -97,7 +100,8 @@ t_short	*get_input(const int fd, t_short *tetro)
     {
       if (count < 20 || check_counts(buf, count) != 0)
 	return (0);
-      //tetro[i] = convert_tetro(remove_lines(buf)); **problem
+      hello = buf;
+      tetro[i] = convert_tetro(remove_lines(hello));
       check = count;
       if (i > 26)
 	return (0);
