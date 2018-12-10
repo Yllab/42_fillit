@@ -24,6 +24,6 @@ t_short					convert_tetro(char *s);
 int						move_tetros_pilot(t_short *tetro);
 int						move_tetros(t_short *tetro, t_field *field, int size);
 int						fill_result(t_short *tetro, int pos, int size);
-int    get_input(const int fd, t_short *tetris);
+void    *get_input(const int fd, t_short *tetris);
 int print_error(char *str);
 #endif

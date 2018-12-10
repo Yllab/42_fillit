@@ -85,7 +85,7 @@ char	*remove_lines(char *buf)
   return (str);
 }
 
-t_short	*get_input(const int fd, t_short *tetro)
+int get_input(const int fd, t_short *tetro)
 {
   char buf[22];
   int count;
@@ -95,19 +95,18 @@ t_short	*get_input(const int fd, t_short *tetro)
 
   i = 0;
   check = 0;
-  tetro = 0;
   while ((count = read(fd, buf, 21)))
     {
       if (count < 20 || check_counts(buf, count) != 0)
 	return (0);
       tmp = remove_lines(buf);
-      //      tetro[i] = convert_tetro(tmp);
+      tetro[i] = convert_tetro(tmp);
       check = count;
-      if (i > 26)
+      if (i > 25)
 	return (0);
       i++;
     }
   if (check != 20)
     return (0);
-  return (tetro);
+  return (1);
 }
