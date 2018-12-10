@@ -3,6 +3,11 @@
 
 # define BUFF_SIZE 32
 
+#include <fcntl.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+
 typedef	unsigned short 	t_short;
 
 typedef struct			s_field
