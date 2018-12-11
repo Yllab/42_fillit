@@ -1,5 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   result.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/11 15:57:58 by hbally            #+#    #+#             */
+/*   Updated: 2018/12/11 16:07:46 by hbally           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "fillit.h"
-#include "libft.h"
 
 static	int			init_result(char **result, t_short *tetro, int size)
 {
@@ -29,7 +40,7 @@ static void			print_result(char *result, int size)
 		if (i > 0 && i % size == 0)
 			ft_putchar('\n');
 		if (!result[i])
-			ft_putchar('.'); 
+			ft_putchar('.');
 		else
 			ft_putchar(result[i]);
 		i++;
@@ -38,7 +49,7 @@ static void			print_result(char *result, int size)
 	ft_strdel(&result);
 }
 
-int					fill_result(t_short *tetro, int pos, int size) 
+int					fill_result(t_short *tetro, int pos, int size)
 {
 	static char		*result;
 	static int		count;
@@ -56,7 +67,7 @@ int					fill_result(t_short *tetro, int pos, int size)
 	{
 		if (*tetro & iter)
 			result[pos] = 'A' + count;
-		pos += iter & 0x1111 ? size - 3: 1;
+		pos += iter & 0x1111 ? size - 3 : 1;
 		iter /= 2;
 	}
 	if (count == 0)

@@ -1,35 +1,12 @@
-//////////////////////////////////////////////////////
-Makefile explanation
-
-> make input : generate input and put it in ./tests/
-> make test : compiles 'fillit' with ./srcs/main.c and places a copy in ./tests/
-			  then compiles 'test' with ./tests/maintest.c and place it in ./tests/
-> make runfillit : runs fillit on random input
-> make runtest   : runs test   on random input
-
 /////////////////////////////////////////////////////
 TODO :
 > check if libft functions we use and get next line could be optimized
-> this is a test
-
-optimisation algo fillit
->  verifier le nombre de blanks restants ou l’on ne peut pas mettre de tetro — si plus petit que le reste des pieces a trouver, sortir
->  si on remet la meme piece plusieurs fois, le backtracking va essayer +sieurs fois la meme chose vu que les pieces st interchangeables donc possibilité de prune
-> pos / size et pos % size remplaçable par x et y pour éviter des calculs
-> diviser tetro en struct de 4 x 4 bit pour éviter calcul de shift
-> commencer à comparer seulement a la position où il y a une blank plutôt que reverifier tous les carrés deja plein (> parser rapidement les 4 rows là où on veut poser, les additionner et si résultat inf. a une valeur alors skip ?)
-> int + rapide que short (?)
+> headers in fillit.h mandatory ?
+> malloc in remove_line mandatory ? (size of buf[22] shouldnt change)
+> some way of knowing tetro array size, either '0's or size variable / structure
 
 ///////////////////////////////////////////////////////
 before pushing :
 > git clone and review file structure
-> fichier auteur ?
 > make sure .gitignore did not ignore important files (just in case)
-> remove main.o from $(NAME) rule prerequisites
-> add main.c to SRCS variable
 > test fillit with empty input, 1 tetro, >26 tetros, >1 argv, from stdin..
-> remove debug functions from sources, header and makefile
-> check for stdio.h / printf / ..
-> check for unprotected malloc / memory leak / malloc fail behavior / ..
-> add clean of libft to clean/fclean of Makefile
-> relink makefile

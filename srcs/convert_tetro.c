@@ -6,19 +6,11 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/24 17:28:40 by hbally            #+#    #+#             */
-/*   Updated: 2018/11/26 11:58:06 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/11 15:46:35 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-/*
-** Converts a tetromino from char* representation to t_short
-**
-** Input for convert_tetro should be a null terminated string
-** with strlen == 16 and containing only '#' or '.'
-** (note : if no # is found it is undefined behavior (intended))
-*/ 
 
 static t_short	shift(t_short tetro)
 {
@@ -31,8 +23,8 @@ static t_short	shift(t_short tetro)
 
 t_short			convert_tetro(char *s)
 {
-	int 				i;
-	t_short 		tetro;
+	int			i;
+	t_short		tetro;
 
 	i = 0;
 	tetro = 0x0;

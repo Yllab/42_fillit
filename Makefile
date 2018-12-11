@@ -6,79 +6,52 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/11/29 14:41:52 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/11 16:20:30 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	fillit
 
-#TODO Remove debug functions
-SRCS		=	./srcs/print_tetro.c 		\
-				./srcs/print_field.c		\
-				./srcs/convert_tetro.c 		\
-				./srcs/move_tetros_pilot.c	\
-				./srcs/move_tetros.c		\
-				./srcs/result.c			\
-				./srcs/ft_check_errors.c	\
-				./srcs/get_input.c
+SRCS		=	./srcs/convert_tetro.c 		\
+				./srcs/check_field.c		\
+				./srcs/check_tetro.c		\
+				./srcs/result.c				\
+				./srcs/check_errors.c		\
+				./srcs/get_input.c			\
+				./srcs/main.c				\
 
 OBJS		=	$(SRCS:.c=.o)
 
-INCLUDES	=   -I ./libft/includes \
-				-I ./includes
+DEPS		=	$(OBJS:%.o=%.d)
 
-LIB			=	-L ./libft/ -lft
+INCLUDES	=   -I libft/includes \
+				-I includes
+
+LIBSDIR		=	libft/
+
+LIBS		=	-L libft/ -lft
 
 CFLAGS		+=	-Wall -Werror -Wextra
 
 CC			=	gcc
 
-TESTDIR		=	tests
-
 all			:	$(NAME)
 
-#TODO Remove main.c/main.o mentions and add main to sources
 $(NAME)		:	$(OBJS)
-				make -C ./libft/
-				$(CC) -o ./srcs/main.o $(CFLAGS) $(INCLUDES) -c ./srcs/main.c
-				$(CC) -o $@ $(CFLAGS) $(LIB) $(OBJS) ./srcs/main.o
+				make -C $(LIBSDIR)
+				$(CC) -o $@ $(CFLAGS) $(LIBS) $(OBJS)
 
-test		:	$(OBJS)
-				make -C ./libft/
-				$(CC) -o $@.o $(CFLAGS) $(INCLUDES) -c ./tests/maintest.c
-				$(CC) -o $@ $(CFLAGS) $(LIB) $(OBJS) ./tests/maintest.o
-				
-runtest		:	test	
-				clear
-				./tests/test randominput
-
-runfillit	:	$(NAME)
-				clear
-				./fillit ./tests/randominput
-
-input		:	
-				make -C ./input_generator/
-				./input_generator/input_generator -r > ./tests/randominput
+-include $(DEPS)
 
 %.o			:	%.c
 				$(CC) -o $@ $(CFLAGS) $(INCLUDES) -c $^
 
 clean		:
-				make clean -C ./libft/
-				make clean -C ./input_generator/
-				rm -f $(OBJS)
-				rm -f ./srcs/main.o
-				rm -f ./tests/maintest.o
-				rm -f libft/includes/*.gch
-				rm -f includes/*.gch
+				make clean -C $(LIBSDIR)
+				rm -f $(OBJS) $(DEPS)
 
 fclean		:	clean
-				make fclean -C ./libft/
-				make fclean -C ./input_generator/
-				rm -f ./tests/test
-				rm -f ./tests/fillit
-				rm -f ./tests/bad_inputs/fillit
-				rm -f ./tests/randominput
+				make fclean -C $(LIBSDIR)
 				rm -f $(NAME)
 
 re			:	fclean all
