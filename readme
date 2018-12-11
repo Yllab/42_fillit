@@ -1,12 +1,9 @@
-/////////////////////////////////////////////////////
 TODO :
 > check if libft functions we use and get next line could be optimized
 > headers in fillit.h mandatory ?
 > malloc in remove_line mandatory ? (size of buf[22] shouldnt change)
 > some way of knowing tetro array size, either '0's or size variable / structure
 
-///////////////////////////////////////////////////////
-before pushing :
 > git clone and review file structure
 > make sure .gitignore did not ignore important files (just in case)
 > test fillit with empty input, 1 tetro, >26 tetros, >1 argv, from stdin..
