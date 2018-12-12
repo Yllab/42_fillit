@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:02:47 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/12 12:41:48 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/12 15:12:29 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int					check_field(t_tetros *tetros)
 
 	field.size = upper_perfect_square(tetros->size * 4);
 	bzero(&field, sizeof(t_short) * 16);
-	while ((ret = check_tetro(tetros, &field, field.size)) == 0)
+	while ((ret = check_tetro(tetros, 0, &field) == 0))
 		field.size += 1;
 	return (ret);
 }

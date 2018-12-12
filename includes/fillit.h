@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:58:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/12 12:47:30 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/12 15:14:44 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 
 #include <fcntl.h>
 #include <unistd.h> 
+#include <stdlib.h>
 #include "libft.h"
 
 typedef	unsigned short 	t_short;
@@ -25,7 +26,6 @@ typedef struct			s_tetros
 {
 	t_short				tab[27];
 	int					size;
-	int					now;
 }						t_tetros;
 
 typedef struct			s_field
@@ -42,7 +42,12 @@ char 					*remove_lines(char *buf);
 t_short					convert_tetro(char *s);
 
 int						check_field(t_tetros *tetros);
-int						check_tetro(t_tetros *tetros, t_field *field, int size);
-int						fill_result(t_short *tetro, int pos, int size);
+int						check_tetro(t_tetros *tetros,
+									int current,
+									t_field *field);
+int						fill_result(t_tetros *tetros,
+									int current,
+									int pos,
+									int field_size);
 
 #endif
