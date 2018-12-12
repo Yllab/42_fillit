@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:27:47 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/12 12:06:41 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/12 12:58:51 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int				get_input(const int fd, t_tetros *tetros)
 	{
 		if (count < 20 || check_counts(buf, count) != 0)
 			return (0);
-		tmp = remove_lines(buf);
-		if (!tmp)
+		if (!(tmp = remove_lines(buf)))
 			return (0);
 		tetros->tab[i] = convert_tetro(tmp);
 		free(tmp);

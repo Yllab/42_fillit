@@ -6,21 +6,11 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:02:47 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/12 12:11:02 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/12 12:41:48 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-static int			get_tetro_count(t_short *tetro)
-{
-	int				count;
-
-	count = 0;
-	while (*(tetro++))
-		count++;
-	return (count);
-}
 
 static int			upper_perfect_square(int nb)
 {
@@ -34,14 +24,14 @@ static int			upper_perfect_square(int nb)
 	return (ret);
 }
 
-int					check_field(t_short *tetro)
+int					check_field(t_tetros *tetros)
 {
 	t_field			field;
 	int				ret;
 
-	field.size = upper_perfect_square(get_tetro_count(tetro) * 4);
+	field.size = upper_perfect_square(tetros->size * 4);
 	bzero(&field, sizeof(t_short) * 16);
-	while ((ret = check_tetro(tetro, &field, field.size)) == 0)
+	while ((ret = check_tetro(tetros, &field, field.size)) == 0)
 		field.size += 1;
 	return (ret);
 }

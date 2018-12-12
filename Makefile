@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/12/11 16:20:30 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/12 12:28:53 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,8 +40,6 @@ all			:	$(NAME)
 $(NAME)		:	$(OBJS)
 				make -C $(LIBSDIR)
 				$(CC) -o $@ $(CFLAGS) $(LIBS) $(OBJS)
-
--include $(DEPS)
 
 %.o			:	%.c
 				$(CC) -o $@ $(CFLAGS) $(INCLUDES) -c $^

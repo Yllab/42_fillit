@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:06:36 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/11 16:27:05 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/12 12:52:27 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,27 @@ static int		is_free(t_short *tetro, t_field *field, int col, int row)
 	return (1);
 }
 
-int				check_tetro(t_short *tetro, t_field *field, int size)
+int				check_tetro(t_tetros *tetros, t_field *field, int size)
 {
 	int			pos;
 
-	if (*tetro == 0)
+	if (tetros->now == tetros->size)
 		return (1);
 	else
 	{
 		pos = 0;
 		while (pos < size * size)
 		{
-			if (is_free(tetro, field, pos % size, pos / size))
+			if (is_free(tetros->tab[tetros->now],
+					field, pos % size, pos / size))
 			{
-				update_field(tetro, field, pos % size, pos / size);
-				if (check_tetro(tetro + 1, field, size))
-					return(fill_result(tetro, pos, size));
+				update_field(tetros->tab[tetros->now],
+								field, pos % size, pos / size);
+				if (check_tetro(tetros->tab[tetros->++now], field, size))
+				{
+					tetros->
+					return(fill_result(tetros, pos, size));
+				}
 				update_field(tetro, field, pos % size, pos / size);
 			}
 			pos++;
