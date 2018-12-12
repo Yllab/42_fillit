@@ -6,7 +6,7 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/12/12 12:28:53 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/12 15:56:21 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,8 +21,6 @@ SRCS		=	./srcs/convert_tetro.c 		\
 				./srcs/main.c				\
 
 OBJS		=	$(SRCS:.c=.o)
-
-DEPS		=	$(OBJS:%.o=%.d)
 
 INCLUDES	=   -I libft/includes \
 				-I includes
