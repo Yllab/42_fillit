@@ -6,13 +6,13 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 16:27:47 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/11 16:40:32 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/12 12:06:41 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int				get_input(const int fd, t_short *tetro)
+int				get_input(const int fd, t_tetros *tetros)
 {
 	char		buf[22];
 	int			count;
@@ -27,9 +27,10 @@ int				get_input(const int fd, t_short *tetro)
 		if (count < 20 || check_counts(buf, count) != 0)
 			return (0);
 		tmp = remove_lines(buf);
-		if (!tmp) // remove if strnew is not used in remove_lines
+		if (!tmp)
 			return (0);
-		tetro[i] = convert_tetro(tmp);
+		tetros->tab[i] = convert_tetro(tmp);
+		free(tmp);
 		check = count;
 		if (i > 25)
 			return (0);

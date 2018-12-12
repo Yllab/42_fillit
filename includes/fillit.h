@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:58:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/11 16:29:57 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/12 12:07:45 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,20 @@
 
 typedef	unsigned short 	t_short;
 
+typedef struct			s_tetros
+{
+	t_short				tab[27];
+	int					size;
+	int					current;
+}						t_tetros;
+
 typedef struct			s_field
 {
 	t_short				tab[16];
 	int					size;
 }						t_field;
 
-int    					get_input(const int fd, t_short *tetris);
+int						get_input(const int fd, t_tetros *tetros);
 int 					print_error(char *str);
 int 					check_counts(char *str, int count);
 int 					check_links(char *str);
