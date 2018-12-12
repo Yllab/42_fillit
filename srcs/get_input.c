@@ -24,17 +24,15 @@ int				get_input(const int fd, t_tetros *tetros)
 	check = 0;
 	while ((count = read(fd, buf, 21)))
 	{
-		if (count < 20 || check_counts(buf, count) != 0)
-			return (0);
-		if (!(tmp = remove_lines(buf)))
-			return (0);
+		if (count < 20 || check_counts(buf, count) != 0 ||
+			!(tmp = remove_lines(buf)))
+		  return (0);
 		tetros->tab[i] = convert_tetro(tmp);
 		tetros->size = i + 1;
 		free(tmp);
 		check = count;
-		if (i > 25)
+		if (i++ > 25)
 			return (0);
-		i++;
 	}
 	if (check != 20)
 		return (0);
