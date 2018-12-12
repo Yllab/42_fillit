@@ -29,6 +29,7 @@ int				get_input(const int fd, t_tetros *tetros)
 		if (!(tmp = remove_lines(buf)))
 			return (0);
 		tetros->tab[i] = convert_tetro(tmp);
+		tetros->size = i + 1;
 		free(tmp);
 		check = count;
 		if (i > 25)
