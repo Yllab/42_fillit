@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:58:34 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/12 15:14:44 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/13 11:32:00 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 
 # define BUFF_SIZE 32
 
-#include <fcntl.h>
-#include <unistd.h> 
-#include <stdlib.h>
-#include "libft.h"
+# include <fcntl.h>
+# include <unistd.h>
+# include <stdlib.h>
+# include "libft.h"
 
-typedef	unsigned short 	t_short;
+typedef	unsigned short	t_short;
 
 typedef struct			s_tetros
 {
@@ -35,10 +35,10 @@ typedef struct			s_field
 }						t_field;
 
 int						get_input(const int fd, t_tetros *tetros);
-int 					print_error(char *str);
-int 					check_counts(char *str, int count);
-int 					check_links(char *str);
-char 					*remove_lines(char *buf);
+int						print_error(char *str);
+int						check_counts(char *str, int count);
+int						check_links(char *str);
+char					*remove_lines(char *buf);
 t_short					convert_tetro(char *s);
 
 int						check_field(t_tetros *tetros);

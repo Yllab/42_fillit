@@ -6,7 +6,7 @@
 /*   By: hbally <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/11 15:49:41 by hbally            #+#    #+#             */
-/*   Updated: 2018/12/12 12:01:59 by hbally           ###   ########.fr       */
+/*   Updated: 2018/12/13 11:30:23 by hbally           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ char		*remove_lines(char *buf)
 
 	i = 0;
 	j = 0;
-	str = ft_strnew(sizeof(buf)); 
+	str = ft_strnew(sizeof(buf));
 	if (str)
 	{
 		while (i < 16)

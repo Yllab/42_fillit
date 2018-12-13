@@ -6,19 +6,19 @@
 #    By: hbally <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 14:02:29 by hbally            #+#    #+#              #
-#    Updated: 2018/12/12 15:56:21 by hbally           ###   ########.fr        #
+#    Updated: 2018/12/13 11:28:19 by hbally           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	fillit
 
-SRCS		=	./srcs/convert_tetro.c 		\
+SRCS		=	./srcs/main.c				\
+				./srcs/get_input.c			\
+				./srcs/check_errors.c		\
+				./srcs/convert_tetro.c 		\
 				./srcs/check_field.c		\
 				./srcs/check_tetro.c		\
 				./srcs/result.c				\
-				./srcs/check_errors.c		\
-				./srcs/get_input.c			\
-				./srcs/main.c				\
 
 OBJS		=	$(SRCS:.c=.o)
 
